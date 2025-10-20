@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Daftar Menu</title>
+    <script>
+        function hitung() {
+            var total = document.getElementById('total').value;
+            total = (total == "") ? 0 : parseInt(total);
+            var harga = 0;
+
+            if (this.checked) {
+                harga = parseInt(this.value);
+                total = total + harga;
+            } else {
+                harga = parseInt(this.value);
+                total = total - harga;
+            }
+
+            document.getElementById('total').value = total;
+        }
+    </script>
+</head>
+<body>
+    <h3>Daftar Menu Makanan</h3>
+    <input type="checkbox" value="5000" id="m1" onclick="hitung.call(this)"> Ayam Goreng Rp. 5.000<br>
+    <input type="checkbox" value="3500" id="m2" onclick="hitung.call(this)"> Tempe Goreng Rp. 3.500<br>
+    <input type="checkbox" value="2000" id="m3" onclick="hitung.call(this)"> Tahu Goreng Rp. 2.000<br>
+    <input type="checkbox" value="1000" id="m4" onclick="hitung.call(this)"> Sambal Rp. 1.000<br>
+    <input type="checkbox" value="3000" id="m5" onclick="hitung.call(this)"> Telur Dadar Rp. 3.000<br><br>
+
+    <strong>Total Bayar: Rp. 
+        <input type="text" id="total" readonly>
+    </strong>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Validasi Form</title>
+    <script>
+        function validateForm() {
+            var nama = document.forms["myForm"]["nama"].value;
+            var email = document.forms["myForm"]["email"].value;
+            var password = document.forms["myForm"]["password"].value;
+
+            // Validasi Nama
+            if (nama == "") {
+                alert("Nama tidak boleh kosong!");
+                return false;
+            }
+
+            // Validasi Email
+            if (email == "") {
+                alert("Email tidak boleh kosong!");
+                return false;
+            }
+            var formatEmail = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+            if (!email.match(formatEmail)) {
+                alert("Format email tidak valid!");
+                return false;
+            }
+
+            // Validasi Password
+            if (password == "") {
+                alert("Password tidak boleh kosong!");
+                return false;
+            }
+            if (password.length < 6) {
+                alert("Password minimal 6 karakter!");
+                return false;
+            }
+
+            alert("Form berhasil dikirim!");
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <h2>Form Validasi</h2>
+    <form name="myForm" onsubmit="return validateForm()">
+        Nama: <input type="text" name="nama"><br><br>
+        Email: <input type="text" name="email"><br><br>
+        Password: <input type="password" name="password"><br><br>
+        <input type="submit" value="Kirim">
+    </form>
+</body>
+</html>
